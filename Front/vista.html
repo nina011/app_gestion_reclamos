@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="Es-es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos</title>
+    <link type="text/css " rel="stylesheet" href="bootstrap-4.5.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css.css">
+     <script src="main.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-info navbar-expand-md">
+        <div class="container">
+            <a href="#" class="navbar-brand"><span class="h4">Reclamos<strong>Correo</strong>.cl</span></a>
+
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#menu-principal"
+                aria-controls="menu-principal" aria-expanded="false" arial-label="desplegar menú de navegación">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="menu-principal">
+
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active"><a href="index.html" class="nav-link">Inicio</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Ver Reclamos</a></li>
+                    <li class="nav-item"><a href="index.html" class="nav-link">Cerrar sesión</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+<br>
+<br>
+<!--boton mostrar todos-->
+<div class="container" style="background-color:  white;" >
+    <div class="row" >
+        <div class="col-12">
+         
+               <h5 class="card-header" style="text-align: center; background-color: white;">Opciones de Búsqueda</h6>
+               <br>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <button class="btn btn-info" id="cargarTodos" style="margin-left: 6%;">Mostrar Todos Los Registros</button>
+            </div>
+            <br>
+        </div>      
+    </div>
+    <br>
+    <br>
+    
+    <br>
+
+   
+    <div class="row">
+       
+        <div class="col-4">
+            <!--Buscar Por-->
+            <div class="formulario__grupo" id="grupo__Fecha">
+                <label for="fecha"><b>Buscar Por:</b></label>
+                <div class="formulario__grupo-input">
+                    <select class="formulario__input2" name="tipoReclamo" id="tipoBusqueda">
+                        <option value="Seleccionar una opcion">Seleccione una opción de búsqueda</option>
+                        <option value="rut">Rut</option>
+                        <option value="nPedido">N° Pedido</option>
+                        <option value="fecha">Fecha</option> 
+                        <option value="estado">Estado</option>
+                        <option value="id">ID</option>
+                    </select>
+                </div>
+                </div>
+             </div> 
+             <!--Opción  inyectable por javascript-->
+             <div class="col-4">
+                <div class="formulario__grupo" id="grupo__nPedido">
+                    <label for="nPedido"><b>Ingrese Campo</b></label>
+                    <div class="formulario__grupo-input">
+                        <input type="text" class="formulario__input2"  id="buscar_porSelect">
+                    </div>
+                    <p class="formulario__input-error">invalido
+                    </p>
+                </div>
+               
+             </div>
+          
+            </div>
+            <div class="row">
+                <div class="col-4 btnBuscar" >
+                
+                    <button type="button" class="btn btn-success btn-lg" id="btnBuscar">Buscar</button>
+                
+                </div>
+            </div>
+
+        <!--Modificar por ID-->
+        <p>modificar por ID</p>
+        <div class="row">
+            <div class="col-4">
+                <div class="formulario__grupo" id="grupo__nPedido">
+                    <label for="nPedido"><b>Ingrese ID</b></label>
+                    <div class="formulario__grupo-input">
+                        <input type="text" class="formulario__input2" id="buscar_ID">
+                    </div>
+                    <p class="formulario__input-error">invalido
+                    </p>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="formulario__grupo" id="grupo__nPedido">
+                    <label for="nPedido"><b>Ingrese nuevo estado</b></label>
+                    <div class="formulario__grupo-input">
+                        <input type="text" class="formulario__input2" id="nuevo_estado">
+                    </div>
+                    <p class="formulario__input-error">invalido
+                    </p>
+                </div>
+            </div>
+          
+            <div class="col-4 btnBuscar">
+            
+                <button type="button" class="btn btn-warning btn-lg" id="btnModificar">Actualizar Estado</button>
+            
+            </div>
+           
+        </div>
+     </div>
+    
+        
+    
+
+
+    <!--card para la tabla-->
+    <br>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <!--comienza el card-->
+                <div class="card">
+                    <h5 class="card-header">Lista de Reclamos</h5>
+                    <div class="card-body">
+                        <!--tabla-->
+                        <div class="table-responsive">
+
+                       
+                        <table class="table table-striped">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Apellido</th>
+                                    <th scope="col">Rut</th>
+                                    <th scope="col">E-mail</th>
+                                    <th scope="col">Teléfono</th>
+                                    <th scope="col">Fecha</th>
+                                    <th scope="col">Tipo de Reclamo</th>
+                                    <th scope="col">N° Pedido</th>
+                                    <th scope="col">Descripción</th>
+                                    <th scope="col">Estado</th>
+                                   
+
+                                </tr>
+                            </thead>
+                            <tbody class="lista-tabla">
+                                
+                            </tbody>
+                        </table>
+                        </div>
+
+                        <!--paginación-->
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Anterior</a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">Siguiente</a>
+                                </li>
+                            </ul>
+                        </nav>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
+    integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
+    crossorigin="anonymous"></script>
+
+</html>
